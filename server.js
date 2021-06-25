@@ -53,11 +53,14 @@ async function getElasticData(req) {
     index: "inc_exec",
     from: 0,
     size: 30,
-    query: {
-      "terms":{
-        "result.u_final_severity.display_value.keyword": ["Severity 1", "Severity 2"]
-      }      
+    body: {
+      query: {
+        "terms":{
+          "result.u_final_severity.display_value.keyword": ["Severity 1", "Severity 2"]
+        }      
+      }
     }
+    
   });
   return body;
 };
